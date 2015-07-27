@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Client.Models.Trip>
+
+@{
+    ViewBag.Title = "Travel Planner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+<link href="~/Content/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+<script type="text/javascript">
+    var startupRole = '@ViewBag.Role';
+    var URL_Register = '@(Url.Action("Register", "User"))';
+    var URL_Login = '@(Url.Action("Login", "User"))';
+    var URL_Logoff = '@(Url.Action("Logoff", "User"))';
+
+    var URL_UsersList = '@(Url.Action("UsersList", "User"))';
+    var URL_FilterUser = '@(Url.Action("FilterUserList", "User"))';
+    var URL_CreateUser = '@(Url.Action("CreateUser", "User"))';
+    var URL_EditUser = '@(Url.Action("EditUser", "User"))';
+    var URL_DeleteUser = '@(Url.Action("DeleteUser", "User"))';
+
+    var URL_TripsList = '@(Url.Action("TripsList", "Home"))';
+    var URL_Filter = '@(Url.Action("FilterList", "Home"))';
+    var URL_Create = '@(Url.Action("Create", "Home"))';
+    var URL_Edit = '@(Url.Action("Edit", "Home"))';
+    var URL_Delete = '@(Url.Action("Delete", "Home"))';
+    var URL_TravelPlan = '@(Url.Action("TravelPlan", "Home"))';
+</script>
+<script src="~/Scripts/Script.js"></script>
+
+<div id="dialog-confirm" title="Confirmation" style="display: none">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+        Are you sure to want to delete the selected item?
+    </p>
+</div>
+
+<div id="TravelPlan" style="display: none">
+</div>
+
+@Html.AntiForgeryToken()
+
+<p>
+    <a id="lnkRegister" href="#" target="_blank">Register</a>
+</p>
+<p>
+    <a id="lnkLogin" href="#" target="_blank">Log In</a>
+</p>
+<p>
+    <a id="lnkLogoff" href="#" target="_blank">Log Off</a>
+</p>
+<p>
+    <a id="lnkUsersList" href="#" target="_blank">Manage Users</a>
+</p>
+<p>
+    <a id="lnkTripsList" href="#" target="_blank">Manage Trips</a>
+</p>
+
+<label id="lblSuccess" class="message-success"></label>
+<label id="lblError" class="message-error"></label>
+
+<div id="mainContent" class="centered"></div>

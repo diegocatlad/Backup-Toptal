@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="orderedtest1" storage="d:\decadentes\mis programas\toptal\diego-hernan-prinzi\travelplanner.tests\orderedtest1.orderedtest" id="6f234e03-b1ef-4d1b-b684-100f4563c32a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="8ce5f3b9-43c4-1b3a-1643-c42c10c9056b" name="CreateOrUpdateTrip_CreateReturnsOk" storage="bin\debug\travelplanner.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="96cba0ad-3deb-87b6-c7eb-efb754c73064" name="CreateOrUpdateTrip_UpdateReturnsOk" storage="bin\debug\travelplanner.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="f0fe0b3c-6e5e-d5dc-5800-d6fea41dbba1" name="GetAllTrips_ReturnsOk" storage="bin\debug\travelplanner.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

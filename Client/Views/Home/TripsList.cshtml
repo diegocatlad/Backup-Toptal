@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Client.Models.Trip>
+
+@using (Html.BeginForm("FilterList", "Home", FormMethod.Post, new { id = "frmTripsList" }))
+{
+    <div id="divTripsList">
+        <p>
+            <a id="lnkCreate" href="#" target="_blank">Create</a>
+        </p>
+        <p>
+            Find by destination: &nbsp; @Html.TextBox("TripDestination")
+            <input id="btnFilter" type="button" value="Filter" />
+            <input id="btnClearFilter" type="button" value="Clear" />
+            <input id="btnPrint" type="button" value="Print Travel Plan" />
+        </p>
+        <table class="table tripsList">
+            <tr>
+                <th style="width:100px;">
+                    Destination
+                </th>
+                <th style="width:80px;">
+                    Start Date
+                </th>
+                <th style="width:70px;">
+                    End Date
+                </th>
+                <th style="width:80px;">
+                    Days to go
+                </th>
+                <th style="width:250px;">
+                    Comment
+                </th>
+                <th style="width:100px; border-style:none;"></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width:100px;">
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td style="width:80px; text-align:center;">
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td style="width:70px; text-align:center;">
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+                    <td style="width:80px; text-align:center;">
+                        @if (item.StartDate > DateTime.UtcNow)
+                        {
+                            @((item.StartDate.Date - DateTime.UtcNow.Date).TotalDays)
+                        }
+                    </td>
+                    <td style="width:250px;">
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td style="width:100px; border-style:none;">
+                        <a class="lnkEdit" item-id="@item.Id" href="#" target="_blank">Edit</a> |
+                        <a class="lnkDelete" item-id="@item.Id" href="#" target="_blank">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}

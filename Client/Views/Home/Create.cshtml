@@ -1,0 +1,50 @@
+﻿@model Client.Models.Trip
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datepicker();
+    });
+</script>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { id = "frmCreateTrips" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Destination)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Destination)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control datepicker", placeholder = "Enter date here..." })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">            
+            @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control datepicker", placeholder = "Enter date here..." })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comment)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Comment)
+        </div>
+
+        <p>
+            <input type="button" value="Save" id="btnSaveCreate" />&nbsp;&nbsp;
+            <input type="button" value="Cancel" id="btnCancelTripEdition" />
+        </p>
+    </fieldset>
+}

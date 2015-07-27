@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Client.Models.User>
+
+<div id="divUsersList">
+    <p>
+        <a id="lnkCreateUser" href="#" target="_blank">Create</a>
+    </p>
+    <p>
+        Find by Username: &nbsp; @Html.TextBox("Username")
+        <input id="btnFilterUser" type="button" value="Filter" />
+        <input id="btnClearFilterUser" type="button" value="Clear" />
+    </p>
+    <table class="table">
+        <tr>
+            <th style="width:200px;">
+                Username
+            </th>
+            <th style="width:150px;">
+                Role
+            </th>
+            <th style="width:100px; border-style:none;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width:200px;">
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td style="width:150px;">
+                    @Html.DisplayFor(modelItem => item.Role.Name)
+                </td>
+                <td style="width:100px; border-style:none;">
+                    <a class="lnkEditUser" item-id="@item.Id" href="#" target="_blank">Edit</a> |
+                    <a class="lnkDeleteUser" item-id="@item.Id" href="#" target="_blank">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

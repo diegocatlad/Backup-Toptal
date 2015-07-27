@@ -1,0 +1,47 @@
+﻿@model Client.Models.CreateUserModel
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("EditUser", "User", FormMethod.Post, new { id = "frmEditUsers" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <fieldset>        
+        @Html.HiddenFor(model => model.User.Id)
+
+        <div class="editor-label">
+            Username
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User.Username)
+        </div>
+
+        <div class="editor-label">
+            Password
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.User.Password)
+        </div>
+
+        <div class="editor-label">
+            Confirm Password
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.User.ConfirmPassword)
+        </div>
+
+        <div class="editor-label">
+            Role
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.User.RoleId, Model.Roles)
+        </div>
+
+        <p>
+            <input type="button" value="Save" id="btnSaveEditUser" />
+            &nbsp;&nbsp;<input type="button" value="Cancel" id="btnCancelUserEdition" />
+        </p>
+    </fieldset>
+}

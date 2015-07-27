@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Client.Models.Trip>
+
+<div id="divTripsList">
+    <table class="table tripsList">
+        <tr>
+            <th style="width:100px;">
+                Destination
+            </th>
+            <th style="width:80px;">
+                Start Date
+            </th>
+            <th style="width:70px;">
+                End Date
+            </th>
+            <th style="width:100px;">
+                Days to go
+            </th>
+            <th>
+                Comment
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width:100px;">
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td style="width:80px; text-align:center;">
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td style="width:70px; text-align:center;">
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td style="width:100px; text-align:center;">
+                    @if (item.StartDate > DateTime.UtcNow)
+                    {
+                        @((item.StartDate.Date - DateTime.UtcNow.Date).TotalDays)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<style>
+    h1 {
+        font-size: 180%;
+    }
+
+    h2 {
+        border-bottom: 1px solid #999999;
+    }
+
+    .printable {
+        border: 1px dotted #CCCCCC;
+        padding: 10px 10px 10px 10px;
+    }
+
+    img {
+        background-color: #E0E0E0;
+        border: 1px solid #666666;
+        padding: 5px 5px 5px 5px;
+    }
+
+    a {
+        color: red;
+    }
+
+    table {
+        border-spacing: 0px;
+        padding: 0px;
+    }
+
+    th {
+        border-style: solid;
+        border-width: thin;
+        text-align: center;
+        border-spacing: 0px;
+        padding: 1px;
+    }
+
+    td {
+        border-style: solid;
+        border-width: thin;
+        border-spacing: 0px;
+        padding: 1px;
+    }
+</style>
